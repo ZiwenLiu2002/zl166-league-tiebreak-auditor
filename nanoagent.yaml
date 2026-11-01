@@ -1,0 +1,24 @@
+_ > nanoagent.plugin.v0001.ManifestConfig:
+id: zl166-league-tiebreak-auditor
+name: League Tiebreak Auditor
+version: 0.1.0
+status: ready
+spec: nanoagent.plugin/v0001
+runtime > nanoagent.plugin.v0001.RuntimeConfig:
+  type: mcp_stdio
+  command: [uv, run, --frozen, python, -m, plugin]
+permissions > nanoagent.plugin.v0001.PermissionsConfig:
+  network > nanoagent.plugin.v0001.NetworkConfig:
+    hosts: []
+  filesystem > nanoagent.plugin.v0001.FilesystemConfig:
+    write: [workspace]
+tools > dict[contract.Tool, nanoagent.plugin.v0001.ToolConfig]:
+  compute_standings:
+    description: Recompute a league table and apply all deterministic tie-breaks
+tasks > dict[contract.Task, nanoagent.plugin.v0001.TaskConfig]:
+  audit-league-standings:
+    description: Produce an auditable table from completed match scores
+    runner: tool
+    tools: [compute_standings]
+    reference: null
+    instructions: Award the configured points, compute goals and rank by points descending, goal difference descending, goals for descending, then team id ascending.

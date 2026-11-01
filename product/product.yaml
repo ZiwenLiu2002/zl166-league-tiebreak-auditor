@@ -1,0 +1,11 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "Audit a league table from the scores"
+summary: "Recount standings from completed matches under configurable points and a deterministic points, goal-difference, goals-for, and team-id tie-break chain."
+highlights:
+  - "Recomputes every points total"
+  - "Audits goals for and against"
+  - "Makes final ties reproducible"
+steps:
+  - "List teams and completed match scores"
+  - "Set win, draw, and loss points"
+  - "Review the verified ordered table"
