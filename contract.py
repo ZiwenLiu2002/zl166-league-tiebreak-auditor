@@ -1,5 +1,3 @@
-"""Contract for reproducible league standings."""
-
 from dataclasses import dataclass
 from enum import Enum
 from typing import Annotated
